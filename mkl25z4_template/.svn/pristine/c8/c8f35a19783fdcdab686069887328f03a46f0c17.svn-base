@@ -1,0 +1,18 @@
+
+MCG mode: PEE
+fvco = 96 MHz
+
+MCGOUTCLK = fvco
+MCGPLLCLK = fvco
+MCGIRCLK = 32.768 kHz
+OSCERCLK = 8 MHz
+LPOCLK = 1 kHz
+ERCLK32K = LPOCLK
+
+fsys = MCGOUTCLK / 2 = 48 MHz
+fbus = fsys / 2 = 24 MHz
+fuart0 = MCGPLLCLK / 2 = 48 MHz
+ftpm = MCGPLLCLK / 2 = 48 MHz
+fusb = MCGPLLCLK / 2 = 48 MHz
+
+Clock signal is enabled for all modules.

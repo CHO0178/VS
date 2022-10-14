@@ -1,0 +1,11 @@
+BOARD=None
+CODE_LOCATION=FLASH
+ENDIAN=Little-endian
+MCU=MKL25Z128xxx4
+MCU_VENDOR=Freescale
+MODEL=Lite
+PROBE=Generic
+PROJECT_FORMAT_VERSION=2
+TARGET=ARM\u00AE
+VERSION=8.1.0
+eclipse.preferences.version=1

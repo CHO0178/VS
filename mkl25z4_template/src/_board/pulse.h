@@ -1,0 +1,51 @@
+/*
+ * Name: pulse.h
+ * Author: Martin Stankus
+ *
+ */
+
+#ifndef _PULSE_H_
+#define _PULSE_H_
+
+#define PULSE_ADDR_INT1STAT				0x00u
+#define PULSE_ADDR_INT2STAT				0x01u
+#define PULSE_ADDR_INT1EN				0x02u
+#define PULSE_ADDR_INT2EN				0x03u
+#define PULSE_ADDR_FIFO_DATA			0x07u
+#define PULSE_ADDR_MODE_CONF			0x09u
+#define PULSE_ADDR_SPO2_CONF			0x0Au
+#define PULSE_ADDR_LED1_PA				0x0Cu
+#define PULSE_ADDR_LED2_PA				0x0Du
+#define PULSE_ADDR_TEMP					0x1Fu
+#define PULSE_ADDR_TEMP_FRAC			0x20u
+#define PULSE_ADDR_TEMP_CONF			0x21u
+#define PULSE_ADDR_PART_ID				0xFFu
+
+#define PULSE_INT1_A_FULL				0x80u
+#define PULSE_INT1_PPG_RDY				0x40u
+#define PULSE_INT1_ALC_OVF				0x20u
+#define PULSE_INT1_PWR_RDY				0x01u
+
+#define PULSE_INT2_DIE_TEMP_RDY			0x02u
+
+#define PULSE_MODE_CONF_RESET			0x40u
+#define PULSE_MODE_CONF_MODEHR			0x02u
+#define PULSE_MODE_CONF_MODESPO2		0x03u
+
+#define PULSE_SPO2_CONF_RGE2048NA		0x00u
+#define PULSE_SPO2_CONF_RGE4096NA		0x20u
+#define PULSE_SPO2_CONF_RGE8192NA		0x40u
+#define PULSE_SPO2_CONF_RGE16384NA		0x60u
+
+#define PULSE_SPO2_CONF_SR50HZ			0x00u
+#define PULSE_SPO2_CONF_SR100HZ			0x04u
+
+#define PULSE_SPO2_CONF_RES15B			0x00u
+#define PULSE_SPO2_CONF_RES18B			0x03u
+
+#define PULSE_TEMP_CONF_TEMP_EN			0x01u
+
+#define PULSE_PART_ID_VAL				0x15u
+
+
+#endif /* _PULSE_H_ */
