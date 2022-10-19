@@ -5,11 +5,11 @@
 /*
 DAC
 	DAT0L
-		DATA0			lower data pro pøevod
+		DATA0			lower data pro pÃ¸evod
 	DAT0H
-		DATA1			higher data pro pøevod
+		DATA1			higher data pro pÃ¸evod
 	C0
-		DACEN			povolí pouití 12bit DAC
+		DACEN			povolÃ­ pouÅ¾itÃ­ 12bit DAC          
 
 
 */
@@ -25,8 +25,8 @@ void setupNVICandPIT();
 int main(void)
 {
 	wdog_init(WDOG_CONF_LPOCLK_1024_CYCLES);
-	// povolte pouití 12bit DAC
-
+	// povolte pouÅ¾itÃ­ 12bit DAC
+	int i;
 	setupNVICandPIT();
 
 
@@ -52,9 +52,9 @@ void __attribute__ ((interrupt)) PIT_IRQHandler(void)
 {
 	PIT->CHANNEL[0u].TFLG = PIT_TFLG_TIF_MASK;
 
-	// vlote hodnoty z sin_lut do registrù DAT0L, DAT0H
+	// vloÅ¾te hodnoty z sin_lut do registrÃ¹ DAT0L, DAT0H
 
-	// inkrementujte index ukazující na pøíští hodnotu pouitou po DAC
+	// inkrementujte index ukazujÃ­cÃ­ na pÃ¸Ã­Å¡tÃ­ hodnotu pouÅ¾itou po DAC
 
-	// pøi pøesáhnutí indexu hodnoty SIN_LUT_DATA_LEN vynuluj index
+	// pÃ¸i pÃ¸esÃ¡hnutÃ­ indexu hodnoty SIN_LUT_DATA_LEN vynuluj index
 }
