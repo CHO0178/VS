@@ -54,9 +54,7 @@ void __attribute__ ((interrupt)) PIT_IRQHandler(void)
 
 	// vložte hodnoty z sin_lut do registrù DAT0L, DAT0H
 
-
 	// inkrementujte index ukazující na pøíští hodnotu použitou po DAC
 
 	// pøi pøesáhnutí indexu hodnoty SIN_LUT_DATA_LEN vynuluj index
-
 }

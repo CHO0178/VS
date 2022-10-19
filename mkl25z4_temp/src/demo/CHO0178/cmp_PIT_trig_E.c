@@ -25,7 +25,7 @@ CMP
 	MUXCR
 		PSEL			multiplex to positive input of CMP
 		MSEL			multiplex to negative input of CMP
-	SRC
+	SCR
 		IER				enable flag raising
 		CFR				flag interruptu
 	CR1
@@ -54,12 +54,11 @@ int main(void)
 
 	// povolte použití 12bit DAC
 
-
 	// pøepnìte multiplex v periferii port tak, aby pøesmìroval signál z BNC konektoru J15 na výstup periferie CMP0
 
 	// pøepnìte multiplex v periferii port tak, aby pøesmìroval signál z výstupu DAC na BNC konektor
 
-	// nastavte priferii CMP tak aby výstupní hodnota vosel byla 0x20u
+	// nastavte priferii CMP tak aby výstupní hodnota vosel byla 0x20u a nastavte napájení vnitøního DAC periferie
 
 	// nastavte vstupní multiplexory na kladný vstup periferii DAC0 a záporný vstup signal DAC periferie CMP
 
@@ -107,7 +106,7 @@ void __attribute__ ((interrupt)) CMP0_IRQHandler(void)
 {
 	// proveïte vynulování vyhozeného flagu (dejte si pozor aby jste nevynulovali povolení flagù)
 
-
 	// èítej poèet vyvolaných interruptù a každé 50 volání zvìtši výstup na diodì o 1
+
 
 }
