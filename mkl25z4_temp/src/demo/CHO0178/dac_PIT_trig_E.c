@@ -25,8 +25,8 @@ void setupNVICandPIT();
 int main(void)
 {
 	wdog_init(WDOG_CONF_LPOCLK_1024_CYCLES);
-	// povolte použití 12bit DAC
-	int i;
+	// povolte pouziti� 12bit DAC
+
 	setupNVICandPIT();
 
 
