@@ -5,11 +5,11 @@
 /*
 DAC
 	DAT0L
-		DATA0			lower data pro pøevod
+		DATA0			lower data pro prevod
 	DAT0H
-		DATA1			higher data pro pøevod
+		DATA1			higher data pro prevod
 	C0
-		DACEN			povolí použití 12bit DAC          
+		DACEN			povoleni pouziti� 12bit DAC
 
 
 */
@@ -52,7 +52,7 @@ void __attribute__ ((interrupt)) PIT_IRQHandler(void)
 {
 	PIT->CHANNEL[0u].TFLG = PIT_TFLG_TIF_MASK;
 
-	// vložte hodnoty z sin_lut do registrù DAT0L, DAT0H
+	// vlozte hodnoty z sin_lut do registration DAT0L, DAT0H
 
 	// inkrementujte index ukazující na pøíští hodnotu použitou po DAC
 
