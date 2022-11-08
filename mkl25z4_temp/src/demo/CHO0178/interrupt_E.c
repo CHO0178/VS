@@ -49,10 +49,10 @@ void PORTA_IRQHandler(void)
 
 void blockingFunctionExample()
 {
-	for(int i = 0;i<1000000;i++){}
+	for(int i = 0;i<2000000;i++){}
 	// zapni diodu 1 a vypni diodu 2
 
-	for(int i = 0;i<1000000;i++){}
+	for(int i = 0;i<2000000;i++){}
 	// zapni diodu 2 a vypni diodu 1
 
 
