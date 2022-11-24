@@ -22,16 +22,19 @@ int main(void)
 	wdog_init(WDOG_CONF_LPOCLK_1024_CYCLES);
 	//(0) inicializujte diody
 	led_rgb_init();
-	//(0) nastavte zastavení v debug rezimu
+	//(0) nastavte zastavení v debug rezimu a povolte periferii PIT
 	PIT->MCR |= PIT_MCR_FRZ(1);
+	PIT->MCR &= ~PIT_MCR_MDIS_MASK;
 	//(0) nastavte modulo pro obnovovani na 1.5s (LDVAL, busFrequency 24MHz)
 	PIT->CHANNEL[0].LDVAL = 36000000;
 	//(0) povolte casovac PIT a generovani interruptu (TCTRL)
 	PIT->CHANNEL[0].TCTRL |= PIT_TCTRL_TEN_MASK & PIT_TCTRL_TIE_MASK;
+	//(0) povolte v prijem preruseni v periferii NVIC
+	NVIC_EnableIRQ(PIT_IRQn);
+	NVIC_SetPriority(PIT_IRQn,2);
 	//(1) nastavte druhý kanál na periodu 2s
 	PIT->CHANNEL[1].LDVAL = 72000000;
 	PIT->CHANNEL[1].TCTRL |= PIT_TCTRL_TEN_MASK & PIT_TCTRL_TIE_MASK;
-
 	//(2) nastavte èas systicku na 0.5s
 	SysTick->LOAD = 1500000 - 1u;
 	SysTick->VAL = 0ul;
