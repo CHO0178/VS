@@ -6,10 +6,6 @@
 #include "wdog.h"
 #include "led.h"
 
-#define ADC_EXPT_PRI		2u
-
-#define PIT0_MOD			2400ul
-
 int main(void)
 {
 	wdog_init(WDOG_CONF_LPOCLK_1024_CYCLES);
@@ -19,7 +15,6 @@ int main(void)
 
 
 	// povolte pending IRQ z DMA v NVICu na prioritu 2
-
 
 	// ADC - chapter 28
 	// v analog to digital prevodniku nastavte divideRatio (ADIV = 2) na inputClock/4 a 12-bitovou konverzi(mode = 1)//(CFG1)
@@ -43,13 +38,13 @@ int main(void)
 
 
 	// SIM chapter 12
-	// povolte alternativni trigrovani modulu ADC0(ADC0ALTTRGEN = 1) a nastavte zdroj trigrovani na PIT0
+	// povolte alternativni trigrovani modulu ADC0(ADC0ALTTRGEN = 1) a nastavte zdroj trigrovani na PIT0 (SOPT7)
 
 
 	// PIT chapter 32
-	// povolte zastavení casovace behem debugingu
+	// povolte zastaveni casovace behem debugingu
 
-	// nastavte obnovovaci frekvenci na
+	// nastavte obnovovaci frekvenci na 100us MODULO -> LDVAL
 
 	// povolte timer (TEN = 1)//(TCTRL)
 

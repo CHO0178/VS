@@ -27,7 +27,7 @@ int main(void)
 	ADC0->CFG1 = ADC_CFG1_ADIV(ADC_CFG1_ADIV_VAL_DIV4) | ADC_CFG1_MODE(1);
 	// nastavte v ADC zvolte conversion triger na Hardware trigger(ADTRG = 1) a povolte generování DMA requestu (DMAEN = 1)//(SC2)
 	ADC0->SC2 = ADC_SC2_ADTRG_MASK | ADC_SC2_DMAEN_MASK;
-	// povolte generovani interuptu(AIEN = 1) a zvoleni vstupu AD4 (ADCH = 4)//(SC1)
+	// povolte generovani interuptu(AIEN = 1) a zvolte vstup na BNC konektor J9 (ADCH = 4)//(SC1)
 	ADC0->SC1[0u] = ADC_SC1_AIEN_MASK | ADC_CHAN_J9;
 
 	// DMA - chapter 23
@@ -45,14 +45,14 @@ int main(void)
 	DMAMUX0->CHCFG[0u] = DMAMUX_CHCFG_ENBL_MASK | DMAMUX_CHCFG_SOURCE(40);
 
 	// SIM chapter 12
-	// povolte alternativni trigrovani modulu ADC0(ADC0ALTTRGEN = 1) a nastavte zdroj trigrovani na PIT0
+	// povolte alternativni trigrovani modulu ADC0(ADC0ALTTRGEN = 1) a nastavte zdroj trigrovani na PIT0 (SOPT7)
 	SIM->SOPT7 = SIM_SOPT7_ADC0ALTTRGEN_MASK |
 				SIM_SOPT7_ADC0TRGSEL(SIM_SOPT7_ADTGSL_VAL_PIT0);
 
 	// PIT chapter 32
 	// povolte zastavení casovace behem debugingu
 	PIT->MCR = PIT_MCR_FRZ_MASK;
-	// nastavte obnovovaci frekvenci na 100us
+	// nastavte obnovovaci frekvenci na 100us  CLK = 24MHz MODULO -> LDVAL
 	PIT->CHANNEL[0u].LDVAL = PIT0_MOD - 1u;
 	// povolte timer (TEN = 1)//(TCTRL)
 	PIT->CHANNEL[0u].TCTRL = PIT_TCTRL_TEN_MASK;
@@ -68,7 +68,6 @@ int main(void)
 
 void DMA0_IRQHandler(void)
 {
-
 	DMA0->DMA[0u].DSR_BCR = DMA_DSR_BCR_DONE_MASK;
 	DMA0->DMA[0u].DSR_BCR = DMA_DSR_BCR_BCR(500);
 }
