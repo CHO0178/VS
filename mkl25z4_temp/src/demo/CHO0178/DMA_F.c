@@ -52,7 +52,7 @@ int main(void)
 	// PIT chapter 32
 	// povolte zastavení casovace behem debugingu
 	PIT->MCR = PIT_MCR_FRZ_MASK;
-	// nastavte obnovovaci frekvenci na
+	// nastavte obnovovaci frekvenci na 100us
 	PIT->CHANNEL[0u].LDVAL = PIT0_MOD - 1u;
 	// povolte timer (TEN = 1)//(TCTRL)
 	PIT->CHANNEL[0u].TCTRL = PIT_TCTRL_TEN_MASK;
